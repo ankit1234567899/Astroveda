@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrology Testimonials | Astroveda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #6c5ce7, #8e44ad);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+            color: #6c5ce7;
+            font-size: 2.2rem;
+            position: relative;
+        }
+        
+        .section-title::before, .section-title::after {
+            content: "✦";
+            display: inline-block;
+            margin: 0 15px;
+            color: #8e44ad;
+        }
+        
+        .testimonial-section {
+            margin-bottom: 50px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 5rem;
+            color: rgba(108, 92, 231, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #444;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            color: #6c5ce7;
+            font-weight: 600;
+        }
+        
+        .testimonial-author::before {
+            content: "— ";
+        }
+        
+        .testimonial-location {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            color: #8e44ad;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-location i {
+            margin-right: 5px;
+        }
+        
+        .flag-icon {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            margin-right: 8px;
+            vertical-align: middle;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .india-flag {
+            background: linear-gradient(to bottom, #ff9933 0%, #ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%, #138808 100%);
+        }
+        
+        .india-flag::after {
+            content: "•";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000080;
+            font-size: 8px;
+        }
+        
+        .usa-flag {
+            background: linear-gradient(to bottom, #b22234 0%, #b22234 7.7%, white 7.7%, white 15.4%, #b22234 15.4%, #b22234 23.1%, white 23.1%, white 30.8%, #b22234 30.8%, #b22234 38.5%, white 38.5%, white 46.2%, #b22234 46.2%, #b22234 53.8%, white 53.8%, white 61.5%, #b22234 61.5%, #b22234 69.2%, white 69.2%, white 76.9%, #b22234 76.9%, #b22234 84.6%, white 84.6%, white 92.3%, #b22234 92.3%, #b22234 100%), blue;
+            background-size: 100% 100%, 30% 100%;
+            background-position: 0 0, 0 0;
+            background-repeat: no-repeat;
+        }
+        
+        .uk-flag {
+            background: linear-gradient(to bottom, #012169 0%, #012169 100%), linear-gradient(to right, #ffffff 0%, #ffffff 33%, #C8102E 33%, #C8102E 66%, #ffffff 66%, #ffffff 100%), linear-gradient(to right, #ffffff 0%, #ffffff 40%, #C8102E 40%, #C8102E 60%, #ffffff 60%, #ffffff 100%);
+            background-blend-mode: overlay, overlay, normal;
+            background-size: 100% 100%, 100% 40%, 40% 100%;
+            background-position: 0 0, 0 0, 0 0;
+        }
+        
+        .canada-flag {
+            background: linear-gradient(to right, #ff0000 0%, #ff0000 25%, #ffffff 25%, #ffffff 75%, #ff0000 75%, #ff0000 100%);
+        }
+        
+        .australia-flag {
+            background: linear-gradient(to bottom, #012169 0%, #012169 100%), linear-gradient(to right, #ffffff 0%, #ffffff 25%, #012169 25%, #012169 30%, #ffffff 30%, #ffffff 70%, #012169 70%, #012169 75%, #ffffff 75%, #ffffff 100%), linear-gradient(to bottom, #ffffff 0%, #ffffff 40%, #012169 40%, #012169 45%, #ffffff 45%, #ffffff 55%, #012169 55%, #012169 60%, #ffffff 60%, #ffffff 100%), linear-gradient(to bottom, #E4002B 0%, #E4002B 100%);
+            background-blend-mode: overlay, overlay, overlay, normal;
+            background-size: 100% 100%, 100% 60%, 60% 100%, 100% 100%;
+            background-position: 0 0, 0 0, 0 0, 0 0;
+        }
+        
+        .uae-flag {
+            background: linear-gradient(to bottom, #FF0000 0%, #FF0000 33%, #FFFFFF 33%, #FFFFFF 66%, #000000 66%, #000000 100%);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #f8f9fa;
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Client Testimonials</h1>
+            <p class="tagline">Hear what our clients from around the world have to say about their Astroveda experience</p>
+        </header>
+        
+        <div class="content">
+            <div class="testimonial-section">
+                <h2 class="section-title">From India</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Astroveda's guidance changed my career path — today I'm in the job I once dreamed of.</p>
+                        <div class="testimonial-author">Satisfied Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon india-flag"></span>
+                            <span>Mumbai</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Every prediction came true with simple remedies. I feel more balanced in life now.</p>
+                        <div class="testimonial-author">Happy Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon india-flag"></span>
+                            <span>Delhi</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Thanks to Astroveda, my marriage obstacles were cleared, and I found happiness again.</p>
+                        <div class="testimonial-author">Grateful Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon india-flag"></span>
+                            <span>Surat</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The clarity I got in finances and business helped me achieve steady growth.</p>
+                        <div class="testimonial-author">Business Owner</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon india-flag"></span>
+                            <span>Bangalore</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Astroveda doesn't just predict, it truly guides — I feel more confident about my future.</p>
+                        <div class="testimonial-author">Satisfied Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon india-flag"></span>
+                            <span>Ahmedabad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-section">
+                <h2 class="section-title">From Around the World</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Astroveda connected with me from thousands of miles away and still gave spot-on guidance.</p>
+                        <div class="testimonial-author">International Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon usa-flag"></span>
+                            <span>USA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Their reading helped me make the right decision in my relationship, and I'm grateful.</p>
+                        <div class="testimonial-author">Relationship Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon uk-flag"></span>
+                            <span>UK</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">I finally found peace and direction in my career after Astroveda's consultation.</p>
+                        <div class="testimonial-author">Career Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon canada-flag"></span>
+                            <span>Canada</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The remedies shared were simple but powerful — my life feels aligned again.</p>
+                        <div class="testimonial-author">International Client</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon australia-flag"></span>
+                            <span>Australia</span>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">Astroveda's insights gave me confidence to start my business abroad, and it's a success now.</p>
+                        <div class="testimonial-author">Entrepreneur</div>
+                        <div class="testimonial-location">
+                            <span class="flag-icon uae-flag"></span>
+                            <span>UAE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Astroveda &copy; 2023 | Transformative Astrological Guidance Across the Globe</p>
+        </footer>
+    </div>
+</body>
+</html>
